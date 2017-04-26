@@ -6,6 +6,8 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.0.0'
+
+        //--------------------------上传JCenter配置代码--------------------------------------
         classpath 'com.novoda:bintray-release:0.3.4'
     }
 }
@@ -19,3 +21,8 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+
+//--------------------------上传JCenter相关代码--------------------------------------
+//解决GBK编码无法映射的错误tasks.getByPath(":要上传的库Model名称:mavenAndroidJavadocs").enabled = false
+tasks.getByPath(":lib.base:mavenAndroidJavadocs").enabled = false
